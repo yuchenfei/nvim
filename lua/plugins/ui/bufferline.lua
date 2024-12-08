@@ -7,7 +7,6 @@
 return {
   'akinsho/bufferline.nvim',
   event = 'VeryLazy',
-  dependencies = 'nvim-tree/nvim-web-devicons',
   keys = {
     { '<leader>bb', '<Cmd>BufferLinePick<CR>', desc = 'Pick Buffer' },
     { '<leader>bd', '<Cmd>BufferLinePickClose<CR>', desc = 'Close Buffer from Tabline' },
