@@ -11,12 +11,6 @@ return {
 
     require('mini.icons').setup()
 
-    -- Visualize and work with indent scope
-    --
-    -- - ii/ia - object scope
-    -- - [i/]i - jump to respective border line
-    require('mini.indentscope').setup()
-
     -- require('config.mini')
     -- Better Around/Inside textobjects
     --
