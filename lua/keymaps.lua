@@ -1,9 +1,7 @@
---[[
-References:
-  - https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
-  - https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
-  - https://github.com/AstroNvim/AstroNvim/blob/main/lua/astronvim/plugins/_astrocore_mappings.lua
---]]
+-- References:
+-- - https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+-- - https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/keymaps.lua
+-- - https://github.com/AstroNvim/AstroNvim/blob/main/lua/astronvim/plugins/_astrocore_mappings.lua
 
 local map = vim.keymap.set
 

@@ -7,16 +7,16 @@ return {
   opts = {
     -- Document existing key chains
     spec = {
-      { '<leader>b', group = 'buffer' },
-      { '<leader>g', group = 'git' },
-      { '<leader>l', group = 'lsp/code' },
-      { '<leader>q', group = 'quit/session' },
-      { '<leader>s', group = 'search' },
-      -- { '<leader>t', group = 'toggle' },
+      { '<leader>b', group = 'Buffer' },
+      { '<leader>g', group = 'Git' },
       { '<leader>h', group = 'Git Hunk', mode = { 'n', 'v' } },
+      { '<leader>l', group = 'LSP/Code' },
+      { '<leader>q', group = 'Quit/Session' },
+      { '<leader>s', group = 'Search' },
+      { '<leader>t', group = 'Toggle' },
       {
         '<leader>w',
-        group = 'windows',
+        group = 'Windows',
         proxy = '<c-w>',
         expand = function()
           return require('which-key.extras').expand.win()
@@ -24,6 +24,9 @@ return {
       },
       -- better descriptions
       { 'gx', desc = 'Open with system app' },
+    },
+    triggers = {
+      { '<auto>', mode = 'nixsotc' },
     },
     icons = {
       group = '',
