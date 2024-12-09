@@ -52,7 +52,28 @@ return {
     },
     filesystem = {
       follow_current_file = { enabled = true },
+      -- netrw disabled, opening a directory opens within the
+      -- window like netrw would, regardless of window.position
+      hijack_netrw_behavior = 'open_current',
       use_libuv_file_watcher = true,
     },
   },
+  init = function()
+    -- FIX: use `autocmd` for lazy-loading neo-tree instead of directly requiring it,
+    -- because `cwd` is not set up properly.
+    vim.api.nvim_create_autocmd('BufEnter', {
+      desc = 'Start Neo-tree with directory',
+      once = true,
+      callback = function()
+        if package.loaded['neo-tree'] then
+          return
+        else
+          local stats = vim.uv.fs_stat(vim.api.nvim_buf_get_name(0))
+          if stats and stats.type == 'directory' then
+            require('neo-tree')
+          end
+        end
+      end,
+    })
+  end,
 }
