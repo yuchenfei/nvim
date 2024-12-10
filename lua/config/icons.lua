@@ -1,13 +1,24 @@
 return {
   diagnostics = {
-    Error = ' ',
-    Warn = ' ',
-    Hint = ' ',
-    Info = ' ',
+    error = '',
+    warn = '',
+    info = '',
+    hint = '',
+  },
+  file = {
+    modified = '',
   },
   git = {
-    added = ' ',
-    modified = ' ',
-    removed = ' ',
+    -- Change type
+    added = '',
+    modified = '',
+    deleted = '',
+    renamed = '󰁕',
+    -- Status type
+    untracked = '',
+    ignored = '',
+    unstaged = '󰄱',
+    staged = '󰱒',
+    conflict = '',
   },
 }

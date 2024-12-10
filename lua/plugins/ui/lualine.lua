@@ -14,23 +14,23 @@ return {
         lualine_a = { 'mode' },
         lualine_b = {
           'branch',
-          {
-            'diff',
-            symbols = {
-              added = icons.git.added,
-              modified = icons.git.modified,
-              removed = icons.git.removed,
-            },
-          },
         },
         lualine_c = {
           {
+            'diff',
+            symbols = {
+              added = icons.git.added .. ' ',
+              removed = icons.git.deleted .. ' ',
+              modified = icons.git.modified .. ' ',
+            },
+          },
+          {
             'diagnostics',
             symbols = {
-              error = icons.diagnostics.Error,
-              warn = icons.diagnostics.Warn,
-              info = icons.diagnostics.Info,
-              hint = icons.diagnostics.Hint,
+              error = icons.diagnostics.error .. ' ',
+              warn = icons.diagnostics.warn .. ' ',
+              info = icons.diagnostics.info .. ' ',
+              hint = icons.diagnostics.hint .. ' ',
             },
           },
           { 'filetype', icon_only = true, padding = { left = 1, right = 0 } },
