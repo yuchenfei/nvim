@@ -8,9 +8,8 @@ return {
     -- Document existing key chains
     spec = {
       { '<leader>b', group = 'Buffer' },
-      { '<leader>g', group = 'Git' },
-      { '<leader>h', group = 'Git Hunk', mode = { 'n', 'v' } },
-      { '<leader>l', group = 'LSP/Code' },
+      { '<leader>g', group = 'Git', mode = { 'n', 'v' } },
+      { '<leader>l', group = 'LSP/Code', mode = { 'n', 'v' } },
       { '<leader>q', group = 'Quit/Session' },
       { '<leader>s', group = 'Search' },
       { '<leader>t', group = 'Toggle' },
@@ -28,6 +27,7 @@ return {
     triggers = {
       { '<auto>', mode = 'nixsotc' },
     },
+    sort = { 'order', 'group', 'alphanum', 'mod' },
     icons = {
       group = '',
     },

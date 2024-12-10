@@ -1,4 +1,5 @@
--- flash.nvim lets you navigate your code with search labels, enhanced character motions, and Treesitter integration.
+-- flash.nvim lets you navigate your code with search labels,
+-- enhanced character motions, and Treesitter integration.
 -- https://github.com/folke/flash.nvim
 
 return {

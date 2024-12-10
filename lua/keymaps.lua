@@ -14,6 +14,9 @@ map({ 'n', 'x' }, 'k', "v:count == 0 ? 'gk' : 'k'", { desc = 'Up', expr = true, 
 -- Clear search with <esc>
 map({ 'i', 'n' }, '<esc>', '<cmd>noh<cr><esc>', { desc = 'Escape and Clear hlsearch' })
 
+-- Save file
+map({ 'i', 'x', 'n', 's' }, '<C-s>', '<cmd>w<cr><esc>', { desc = 'Save File' })
+
 -- Quit
 map('n', '<leader>qq', '<cmd>qa<cr>', { desc = 'Quit All' })
 
@@ -59,3 +62,17 @@ map('n', '<leader>bc', function() Snacks.bufdelete.other() end, { desc = 'Close 
 -- NOTE: This won't work in all terminal emulators/tmux/etc. Try your own mapping
 -- or just use <C-\><C-n> to exit terminal mode
 -- vim.keymap.set('t', '<Esc><Esc>', '<C-\\><C-n>', { desc = 'Exit terminal mode' })
+
+-- [[ Plugin Keymaps ]]
+-- stylua: ignore start
+
+-- Lazygit
+if vim.fn.executable('lazygit') == 1 then
+  map('n', '<leader>gg', function() Snacks.lazygit() end, { desc = 'Lazygit' })
+  map('n', '<leader>gh', function() Snacks.lazygit.log() end, { desc = 'Lazygit Log (cwd)' })
+  map('n', '<leader>gH', function() Snacks.lazygit.log_file() end, { desc = 'Lazygit Log (current file)' })
+end
+
+-- stylua: ignore start
+map('n', '<leader>gl', function() Snacks.git.blame_line() end, { desc = 'Git Blame Line' })
+map({ 'n', 'x' }, '<leader>gx', function() Snacks.gitbrowse() end, { desc = 'Git Browse' })
