@@ -8,6 +8,7 @@ return {
     -- Document existing key chains
     spec = {
       { '<leader>b', group = 'Buffer' },
+      { '<leader>f', group = 'Find' },
       { '<leader>g', group = 'Git', mode = { 'n', 'v' } },
       { '<leader>l', group = 'LSP/Code', mode = { 'n', 'v' } },
       { '<leader>q', group = 'Quit/Session' },
