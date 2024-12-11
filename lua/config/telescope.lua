@@ -60,15 +60,10 @@ vim.keymap.set('n', '<leader>sr', builtin.resume, { desc = 'Search Resume' })
 -- Neovim LSP Pickers
 vim.keymap.set('n', '<leader>sd', '<cmd>Telescope diagnostics bufnr=0<cr>', { desc = 'Diagnostics (current buffer)' })
 vim.keymap.set('n', '<leader>sD', builtin.diagnostics, { desc = 'Diagnostics (all buffers)' })
--- builtin.lsp_references
+-- See lsp config
 -- builtin.lsp_incoming_calls
 -- builtin.lsp_outgoing_calls
--- builtin.lsp_document_symbols
 -- builtin.lsp_workspace_symbols
--- builtin.lsp_dynamic_workspace_symbols
--- builtin.lsp_implementations
--- builtin.lsp_definitions
--- builtin.lsp_type_definitions
 
 -- Git Pickers
 vim.keymap.set('n', '<leader>gb', builtin.git_branches, { desc = 'Git Branches' })
