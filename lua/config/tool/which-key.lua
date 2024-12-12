@@ -1,10 +1,9 @@
--- Useful plugin to show you pending keybinds.
 -- https://github.com/folke/which-key.nvim
+---@module 'which-key'
 
-return {
-  'folke/which-key.nvim',
-  event = 'VeryLazy',
-  opts = {
+return function()
+  ---@type wk.Config
+  local opts = {
     -- Document existing key chains
     spec = {
       { '<leader>b', group = 'Buffer' },
@@ -32,5 +31,7 @@ return {
     icons = {
       group = '',
     },
-  },
-}
+  }
+
+  return opts
+end
