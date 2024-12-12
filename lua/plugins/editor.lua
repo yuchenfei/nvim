@@ -34,6 +34,7 @@ return {
     'folke/todo-comments.nvim',
     lazy = true,
     event = 'VeryLazy',
+    keys = require('config.keys').todocomments,
     opts = require('config.editor.todo-comments'),
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
