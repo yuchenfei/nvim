@@ -1,84 +1,40 @@
---[[
-References:
-  - https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
-  - https://github.com/ayamir/nvimdots/blob/main/lua/core/options.lua
-  - https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
-  - https://github.com/AstroNvim/AstroNvim/blob/main/lua/astronvim/plugins/_astrocore_options.lua
---]]
+-- References:
+-- - https://github.com/nvim-lua/kickstart.nvim/blob/master/init.lua
+-- - https://github.com/ayamir/nvimdots/blob/main/lua/core/options.lua
+-- - https://github.com/LazyVim/LazyVim/blob/main/lua/lazyvim/config/options.lua
+-- - https://github.com/AstroNvim/AstroNvim/blob/main/lua/astronvim/plugins/_astrocore_options.lua
 
--- Set <space> as the leader key
--- See `:help mapleader`
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
 
--- Set to true if you have a Nerd Font installed and selected in the terminal
-vim.g.have_nerd_font = true
-
 -- [[ Setting options ]]
--- See `:help vim.opt`
--- For more options, you can see `:help option-list`
 
--- True color support
-vim.opt.termguicolors = true
-
--- Global statusline
-vim.opt.laststatus = 3
-
--- Make line numbers default
-vim.opt.number = true
--- You can also add relative line numbers, to help with jumping.
-vim.opt.relativenumber = true
-
--- Enable mouse mode, can be useful for resizing splits for example!
-vim.opt.mouse = 'a'
-
--- Don't show the mode, since it's already in the status line
-vim.opt.showmode = false
-
--- Sync clipboard between OS and Neovim.
---  Schedule the setting after `UiEnter` because it can increase startup-time.
---  Remove this option if you want your OS clipboard to remain independent.
---  See `:help 'clipboard'`
-vim.schedule(function()
-  vim.opt.clipboard = 'unnamedplus'
-end)
-
--- Enable break indent
-vim.opt.breakindent = true
-
--- Save undo history
-vim.opt.undofile = true
-
--- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
-
--- Keep signcolumn on by default
--- Always show the signcolumn, otherwise it would shift the text each time
-vim.opt.signcolumn = 'yes'
-
--- Decrease update time
-vim.opt.updatetime = 250
-
--- Decrease mapped sequence wait time
--- Displays which-key popup sooner
-vim.opt.timeoutlen = 300
-
--- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
-
--- Sets how neovim will display certain whitespace characters in the editor.
---  See `:help 'list'`
---  and `:help 'listchars'`
-vim.opt.list = true
+vim.opt.breakindent = true -- Enable break indent
+vim.opt.cursorline = true -- Show which line your cursor is on
+vim.opt.foldenable = true
+vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
+vim.opt.foldlevelstart = 99
+vim.opt.foldmethod = 'expr'
+vim.opt.ignorecase = true -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
+vim.opt.inccommand = 'split' -- Preview substitutions live, as you type!
+vim.opt.laststatus = 3 -- Global statusline
+vim.opt.list = true -- Sets how neovim will display certain whitespace characters in the editor.
 vim.opt.listchars = { tab = '» ', trail = '·', nbsp = '␣' }
+vim.opt.mouse = 'a' -- Enable mouse mode, can be useful for resizing splits for example!
+vim.opt.number = true -- Make line numbers default
+vim.opt.relativenumber = true -- You can also add relative line numbers, to help with jumping.
+vim.opt.scrolloff = 5 -- Minimal number of screen lines to keep above and below the cursor.
+vim.opt.showmode = false -- Don't show the mode, since it's already in the status line
+vim.opt.signcolumn = 'yes' -- Always show the signcolumn, otherwise it would shift the text each time
+vim.opt.smartcase = true
+vim.opt.splitbelow = true
+vim.opt.splitright = true -- Configure how new splits should be opened
+vim.opt.termguicolors = true -- True color support
+vim.opt.timeoutlen = 300 -- Decrease mapped sequence wait time. Displays which-key popup sooner
+vim.opt.undofile = true -- Save undo history
+vim.opt.updatetime = 250 -- Decrease update time
 
--- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
-
--- Show which line your cursor is on
-vim.opt.cursorline = true
-
--- Minimal number of screen lines to keep above and below the cursor.
-vim.opt.scrolloff = 5
+-- Schedule the setting after `UiEnter` because it can increase startup-time.
+vim.schedule(function()
+  vim.opt.clipboard = vim.env.SSH_TTY and '' or 'unnamedplus' -- Sync with system clipboard
+end)

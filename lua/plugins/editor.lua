@@ -16,7 +16,7 @@ return {
     'echasnovski/mini.ai',
     lazy = true,
     event = 'VeryLazy',
-    opts = require('config.editor.mini-ai'),
+    config = require('config.editor.mini-ai').config,
   },
   { -- mini.pairs
     'echasnovski/mini.pairs',
@@ -24,7 +24,7 @@ return {
     event = 'VeryLazy',
     opts = {},
   },
-  { -- mini.surround add/delete/replace surroundings (brackets, quotes, etc.)
+  { -- mini.surround: add/delete/replace surroundings (brackets, quotes, etc.)
     'echasnovski/mini.surround',
     lazy = true,
     event = 'VeryLazy',
@@ -38,9 +38,26 @@ return {
     opts = require('config.editor.todo-comments'),
     dependencies = { 'nvim-lua/plenary.nvim' },
   },
-  { -- vim-sleuth: Detect tabstop and shiftwidth automatically
+  { -- vim-sleuth: detect tabstop and shiftwidth automatically
     'tpope/vim-sleuth', -- https://github.com/tpope/vim-sleuth
     lazy = true,
     event = 'VeryLazy',
+  },
+  { -- nvim-treesitter: highlight, edit, and navigate code
+    'nvim-treesitter/nvim-treesitter',
+    lazy = true,
+    event = 'VeryLazy',
+    build = ':TSUpdate',
+    main = 'nvim-treesitter.configs',
+    opts = require('config.editor.nvim-treesitter'),
+    dependencies = {
+      'nvim-treesitter/nvim-treesitter-textobjects',
+    },
+  },
+  {
+    'nvim-treesitter/nvim-treesitter-context',
+    lazy = true,
+    event = 'VeryLazy',
+    opts = require('config.editor.nvim-treesitter-context'),
   },
 }
