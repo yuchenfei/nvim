@@ -2,6 +2,7 @@ return {
   { -- neo-tree
     'nvim-neo-tree/neo-tree.nvim',
     branch = 'v3.x',
+    lazy = true,
     event = 'VeryLazy',
     keys = require('config.keys').neotree,
     opts = require('config.tool.neo-tree'),
@@ -13,7 +14,26 @@ return {
   },
   { -- which-key
     'folke/which-key.nvim',
+    lazy = true,
     event = 'VeryLazy',
     opts = require('config.tool.which-key'),
+  },
+  { -- Fuzzy Finder (files, lsp, etc)
+    'nvim-telescope/telescope.nvim',
+    branch = '0.1.x',
+    lazy = true,
+    event = 'VimEnter',
+    dependencies = {
+      'nvim-lua/plenary.nvim',
+      {
+        'nvim-telescope/telescope-fzf-native.nvim',
+        build = 'make',
+        cond = function()
+          return vim.fn.executable('make') == 1
+        end,
+      },
+      { 'nvim-telescope/telescope-ui-select.nvim' },
+    },
+    config = require('config.tool.telescope'),
   },
 }
