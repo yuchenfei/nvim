@@ -44,6 +44,24 @@ M.flash = {
   { '<leader>ts', mode = { 'n' }, function() require('flash').toggle() end, desc = 'Toggle Flash Search' },
 }
 
+M.lsp = function(client, buffer)
+  local map = function(keys, func, desc, mode)
+    mode = mode or 'n'
+    vim.keymap.set(mode, keys, func, { buffer = buffer, desc = 'LSP: ' .. desc })
+  end
+
+  map('gd', require('telescope.builtin').lsp_definitions, 'Goto Definition') -- To jump back, press <C-t>.
+  map('gD', vim.lsp.buf.declaration, 'Goto Declaration')
+  map('gr', require('telescope.builtin').lsp_references, 'Goto References')
+  map('gI', require('telescope.builtin').lsp_implementations, 'Goto Implementation')
+  map('gy', require('telescope.builtin').lsp_type_definitions, 'Goto Type Definition')
+
+  map('<leader>la', vim.lsp.buf.code_action, 'Code Action', { 'n', 'x' })
+  map('<leader>lr', vim.lsp.buf.rename, 'Rename')
+  map('<leader>ls', require('telescope.builtin').lsp_document_symbols, 'Document Symbols')
+  map('<leader>lS', require('telescope.builtin').lsp_dynamic_workspace_symbols, 'Workspace Symbols')
+end
+
 M.gitsigns = function(bufnr)
   local gitsigns = require('gitsigns')
   local function map(mode, l, r, opts)

@@ -1,23 +1,18 @@
 return {
-  {
-    -- Main LSP Configuration
+  { -- Main LSP Configuration
     'neovim/nvim-lspconfig',
+    lazy = true,
+    event = 'VeryLazy',
+    config = require('config.code.lsp').setup,
     dependencies = {
-      -- Automatically install LSPs and related tools to stdpath for Neovim
-      -- NOTE: Must be loaded before dependants
-      { 'williamboman/mason.nvim', config = true },
+      -- Easily install and manage LSP servers, DAP servers, linters, and formatters.
+      { 'williamboman/mason.nvim', opts = {} },
+      -- bridge mason with the lspconfig
       'williamboman/mason-lspconfig.nvim',
       'WhoIsSethDaniel/mason-tool-installer.nvim',
-
-      -- Useful status updates for LSP.
-      -- { 'j-hui/fidget.nvim', opts = {} },
-
       -- Allows extra capabilities provided by nvim-cmp
       'hrsh7th/cmp-nvim-lsp',
     },
-    config = function()
-      require('config.lsp')
-    end,
   },
   {
     -- `lazydev` configures Lua LSP for your Neovim config, runtime and plugins
@@ -28,7 +23,7 @@ return {
       library = {
         -- Load luvit types when the `vim.uv` word is found
         { path = 'luvit-meta/library', words = { 'vim%.uv' } },
-        { path = 'snacks.nvim', words = { 'Snacks' } },
+        { path = 'snacks.nvim',        words = { 'Snacks' } },
       },
     },
   },
