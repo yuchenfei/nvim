@@ -47,6 +47,5 @@ return function()
       use_libuv_file_watcher = true,
     },
   }
-
   return opts
 end

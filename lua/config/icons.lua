@@ -32,4 +32,7 @@ return {
     perf = '󰅒',
     test = '󱦟',
   },
+  ui = {
+    package = '󰏖',
+  },
 }

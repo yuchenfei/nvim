@@ -3,7 +3,6 @@
 
 return function()
   ---@type bufferline.Config
-  ---@diagnostic disable: missing-fields
   ---@diagnostic disable: assign-type-mismatch
   local opts = {
     highlights = require('catppuccin.groups.integrations.bufferline').get(),

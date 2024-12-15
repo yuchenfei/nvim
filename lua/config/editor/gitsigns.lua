@@ -3,7 +3,6 @@
 
 return function()
   ---@type Gitsigns.Config
-  ---@diagnostic disable: missing-fields
   local opts = {
     signs = {
       add = { text = '┃' },

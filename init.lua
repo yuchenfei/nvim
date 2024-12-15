@@ -1,5 +1,5 @@
 require('config.lazy')
-require('config.keymaps')
+require('config.keys').setup()
 require('config.autocmds')
 
 -- [[ Colorscheme ]]

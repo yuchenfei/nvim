@@ -5,7 +5,6 @@
 
 return function()
   ---@type TSConfig
-  ---@diagnostic disable: missing-fields
   local opts = {
     ensure_installed = {
       'bash',

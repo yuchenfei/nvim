@@ -12,7 +12,7 @@ return function()
     },
     modes = {
       search = {
-        enabled = true,
+        enabled = false,
       },
     },
   }
