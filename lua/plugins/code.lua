@@ -1,7 +1,6 @@
 return {
   { -- Main LSP Configuration
     'neovim/nvim-lspconfig',
-    lazy = true,
     event = 'VeryLazy',
     config = require('config.code.lsp').setup,
     dependencies = {
@@ -16,7 +15,6 @@ return {
   -- used for completion, annotations and signatures of Neovim apis
   {
     'folke/lazydev.nvim',
-    lazy = true,
     ft = 'lua',
     opts = {
       library = {
@@ -31,7 +29,6 @@ return {
   { -- blink.cmp: a completion plugin with support for LSPs and external sources
     'saghen/blink.cmp',
     version = 'v0.*',
-    lazy = true,
     event = 'InsertEnter',
     opts = require('config.code.blink'),
     -- optional: provides snippets for the snippet source
