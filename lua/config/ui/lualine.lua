@@ -30,7 +30,17 @@ return function()
         { 'filetype', icon_only = true, padding = { left = 1, right = 0 } },
         { 'filename', file_status = false, path = 1, padding = { left = 0, right = 0 } },
       },
-      lualine_x = {},
+      lualine_x = {
+        {
+          function()
+            local linters = require('lint').get_running()
+            if #linters == 0 then
+              return '󰦕'
+            end
+            return '󱉶 ' .. table.concat(linters, ', ')
+          end,
+        },
+      },
       lualine_y = { 'encoding', 'fileformat', 'filetype' },
       lualine_z = {
         { 'location', separator = ' ', padding = { left = 0, right = 0 } },

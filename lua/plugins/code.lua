@@ -41,4 +41,9 @@ return {
     keys = require('config.keys').conform,
     opts = require('config.code.conform'),
   },
+  { -- nvim-lint: An asynchronous linter plugin for Neovim
+    'mfussenegger/nvim-lint',
+    event = 'VeryLazy',
+    config = require('config.code.nvim-lint'),
+  },
 }
