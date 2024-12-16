@@ -34,4 +34,11 @@ return {
     -- optional: provides snippets for the snippet source
     -- dependencies = 'rafamadriz/friendly-snippets',
   },
+  { -- conform.nvim: Lightweight yet powerful formatter plugin for Neovim
+    'stevearc/conform.nvim',
+    event = { 'BufWritePre' },
+    cmd = { 'ConformInfo' },
+    keys = require('config.keys').conform,
+    opts = require('config.code.conform'),
+  },
 }

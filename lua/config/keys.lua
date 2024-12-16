@@ -185,6 +185,14 @@ M.lsp = function(client, buffer)
   }
   require('util.keymap').set_keymaps(keys, buffer)
 end
+M.conform = {
+  {
+    '<leader>lf',
+    function() require('conform').format({ async = true, lsp_format = 'fallback' }) end,
+    mode = '',
+    desc = 'Format',
+  },
+}
 
 M.flash = {
   { 's', mode = { 'n', 'x', 'o' }, function() require('flash').jump() end, desc = 'Flash' },

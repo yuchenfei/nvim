@@ -1,18 +1,7 @@
-return {
-  'stevearc/conform.nvim',
-  event = { 'BufWritePre' },
-  cmd = { 'ConformInfo' },
-  keys = {
-    {
-      '<leader>lf',
-      function()
-        require('conform').format({ async = true, lsp_format = 'fallback' })
-      end,
-      mode = '',
-      desc = 'Format',
-    },
-  },
-  opts = {
+-- https://github.com/stevearc/conform.nvim
+
+return function()
+  local opts = {
     notify_on_error = false,
     format_on_save = function(bufnr)
       -- Disable "format_on_save lsp_fallback" for languages that don't
@@ -38,5 +27,6 @@ return {
       -- You can use 'stop_after_first' to run the first available formatter from the list
       -- javascript = { "prettierd", "prettier", stop_after_first = true },
     },
-  },
-}
+  }
+  return opts
+end

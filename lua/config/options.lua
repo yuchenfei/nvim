@@ -15,6 +15,7 @@ vim.opt.foldenable = true
 vim.opt.foldexpr = 'v:lua.vim.treesitter.foldexpr()'
 vim.opt.foldlevelstart = 99
 vim.opt.foldmethod = 'expr'
+vim.opt.formatexpr = 'v:lua.require"lazyvim.util".format.formatexpr()'
 vim.opt.ignorecase = true -- Case-insensitive searching UNLESS \C or one or more capital letters in the search term
 vim.opt.inccommand = 'split' -- Preview substitutions live, as you type!
 vim.opt.laststatus = 3 -- Global statusline
