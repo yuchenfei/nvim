@@ -33,6 +33,9 @@ return {
     opts = require('config.code.blink'),
     -- optional: provides snippets for the snippet source
     -- dependencies = 'rafamadriz/friendly-snippets',
+    dependencies = {
+      'giuxtaposition/blink-cmp-copilot',
+    },
   },
   { -- conform.nvim: Lightweight yet powerful formatter plugin for Neovim
     'stevearc/conform.nvim',
@@ -45,5 +48,12 @@ return {
     'mfussenegger/nvim-lint',
     event = 'VeryLazy',
     config = require('config.code.nvim-lint'),
+  },
+  { -- copilot.lua: pure lua replacement for github/copilot.vim.
+    'zbirenbaum/copilot.lua',
+    cmd = 'Copilot',
+    build = ':Copilot auth',
+    event = 'InsertEnter',
+    opts = require('config.code.copilot'),
   },
 }

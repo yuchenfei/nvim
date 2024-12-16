@@ -1,4 +1,5 @@
 -- https://github.com/Saghen/blink.cmp
+-- https://github.com/giuxtaposition/blink-cmp-copilot
 
 return function()
   ---@module 'blink.cmp'
@@ -7,6 +8,7 @@ return function()
     keymap = {
       preset = 'default',
       ['<C-l>'] = { 'show' },
+      ['<C-e>'] = { 'hide' },
       ['<PageDown>'] = { 'scroll_documentation_down' },
       ['<PageUp>'] = { 'scroll_documentation_up' },
     },
@@ -23,11 +25,18 @@ return function()
     },
     signature = { enabled = true },
     sources = {
-      default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev' },
+      -- default = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'copilot' },
+      completion = {
+        enabled_providers = { 'lsp', 'path', 'snippets', 'buffer', 'lazydev', 'copilot' },
+      },
       providers = {
         -- dont show LuaLS require statements when lazydev has items
         lsp = { fallback_for = { 'lazydev' } },
         lazydev = { name = 'LazyDev', module = 'lazydev.integrations.blink' },
+        copilot = {
+          name = 'copilot',
+          module = 'blink-cmp-copilot',
+        },
       },
       -- optionally disable cmdline completions
       -- cmdline = {},

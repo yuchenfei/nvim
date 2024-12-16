@@ -23,6 +23,9 @@ return {
     'nvim-lualine/lualine.nvim',
     event = 'VeryLazy',
     opts = require('config.ui.lualine'),
+    dependencies = {
+      'AndreM222/copilot-lualine',
+    },
   },
   { -- noice: replaces the UI for messages, cmdline and the popupmenu.
     'folke/noice.nvim',

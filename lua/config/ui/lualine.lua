@@ -31,6 +31,7 @@ return function()
         { 'filename', file_status = false, path = 1, padding = { left = 0, right = 0 } },
       },
       lualine_x = {
+        { 'copilot', padding = { left = 0, right = 1 } },
         {
           function()
             local linters = require('lint').get_running()
@@ -39,6 +40,7 @@ return function()
             end
             return '󱉶 ' .. table.concat(linters, ', ')
           end,
+          padding = { left = 0, right = 1 },
         },
       },
       lualine_y = { 'encoding', 'fileformat', 'filetype' },
