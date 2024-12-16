@@ -25,33 +25,19 @@ M.servers = {
 
 function M.setup()
   -- setup keymaps
-  M.on_lsp_attach(function(client, buffer)
-    require('config.keys').lsp(client, buffer)
-  end)
+  M.on_lsp_attach(function(client, buffer) require('config.keys').lsp(client, buffer) end)
 
   M.config_diagnostic_signs()
 
-  local servers = M.servers
-  local capabilities = vim.tbl_deep_extend(
-    'force',
-    vim.lsp.protocol.make_client_capabilities(),
-    require('cmp_nvim_lsp').default_capabilities()
-  )
+  require('mason').setup()
+  require('mason-lspconfig').setup()
 
-  local ensure_installed = vim.tbl_keys(servers or {})
-  require('mason-lspconfig').setup({
-    ensure_installed = ensure_installed,
-    handlers = {
-      function(server_name)
-        local server = servers[server_name] or {}
-        -- This handles overriding only values explicitly passed
-        -- by the server configuration above. Useful when disabling
-        -- certain features of an LSP (for example, turning off formatting for ts_ls)
-        server.capabilities = vim.tbl_deep_extend('force', {}, capabilities, server.capabilities or {})
-        require('lspconfig')[server_name].setup(server)
-      end,
-    },
-  })
+  for server, config in pairs(M.servers) do
+    -- passing config.capabilities to blink.cmp merges with the capabilities in your
+    -- `opts[server].capabilities, if you've defined it
+    config.capabilities = require('blink.cmp').get_lsp_capabilities(config.capabilities)
+    require('lspconfig')[server].setup(config)
+  end
 end
 
 -- Change diagnostic symbols in the sign column (gutter)

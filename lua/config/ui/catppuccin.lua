@@ -6,6 +6,7 @@ return function()
   local opts = {
     transparent_background = true,
     integrations = {
+      blink_cmp = true,
       cmp = true,
       gitsigns = true,
       mason = true,
