@@ -1,8 +1,8 @@
 -- https://github.com/lukas-reineke/indent-blankline.nvim
 -- See `:help ibl`
----@module 'ibl
 
 return function()
+  ---@module 'ibl
   ---@type ibl.config
   local opts = {
     indent = { char = '│' },

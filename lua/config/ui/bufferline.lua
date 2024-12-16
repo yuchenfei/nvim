@@ -1,7 +1,7 @@
 -- https://github.com/akinsho/bufferline.nvim
----@module 'bufferline'
 
 return function()
+  ---@module 'bufferline'
   ---@type bufferline.Config
   ---@diagnostic disable: assign-type-mismatch
   local opts = {

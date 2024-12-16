@@ -1,9 +1,9 @@
 -- https://github.com/nvim-treesitter/nvim-treesitter
 -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects
 -- https://github.com/nvim-treesitter/nvim-treesitter-textobjects?tab=readme-ov-file#built-in-textobjects
----@module 'nvim-treesitter'
 
 return function()
+  ---@module 'nvim-treesitter'
   ---@type TSConfig
   local opts = {
     ensure_installed = {

@@ -1,7 +1,7 @@
 -- https://github.com/folke/noice.nvim
----@module 'noice'
 
 return function()
+  ---@module 'noice'
   ---@type NoiceConfig
   local opts = {
     lsp = {

@@ -1,8 +1,8 @@
 -- https://github.com/folke/todo-comments.nvim
----@module 'todo-comments'
 
 return function()
   local icons = require('config.icons')
+  ---@module 'todo-comments'
   ---@type TodoConfig
   local opts = {
     signs = true,

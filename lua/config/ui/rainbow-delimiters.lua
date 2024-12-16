@@ -1,8 +1,8 @@
 -- https://github.com/HiPhish/rainbow-delimiters.nvim
----@module 'rainbow-delimiters'
 -- TODO: Diable on big files
 
 return function()
+  ---@module 'rainbow-delimiters'
   ---@type rainbow_delimiters.config
   local opts = {
     query = {

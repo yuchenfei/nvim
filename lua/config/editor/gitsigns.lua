@@ -1,7 +1,7 @@
 -- https://github.com/lewis6991/gitsigns.nvim
----@module 'gitsigns'
 
 return function()
+  ---@module 'gitsigns'
   ---@type Gitsigns.Config
   local opts = {
     signs = {

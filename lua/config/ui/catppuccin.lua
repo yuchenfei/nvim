@@ -1,7 +1,7 @@
 -- https://github.com/catppuccin/nvim
----@module 'catppuccin'
 
 return function()
+  ---@module 'catppuccin'
   ---@type CatppuccinOptions
   local opts = {
     transparent_background = true,

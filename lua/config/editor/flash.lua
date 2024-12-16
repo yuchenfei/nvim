@@ -1,7 +1,7 @@
 -- https://github.com/folke/flash.nvim
----@module 'flash'
 
 return function()
+  ---@module 'flash'
   ---@type Flash.Config
   local opts = {
     labels = 'asdfghjklqwertyuiopzxcvbnm',

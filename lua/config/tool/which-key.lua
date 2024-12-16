@@ -1,7 +1,7 @@
 -- https://github.com/folke/which-key.nvim
----@module 'which-key'
 
 return function()
+  ---@module 'which-key'
   ---@type wk.Config
   local opts = {
     -- Document existing key chains
