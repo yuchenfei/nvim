@@ -54,3 +54,6 @@ map({
   -- Diagnostic keymaps
   -- vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist, { desc = 'Open diagnostic [Q]uickfix list' })
 })
+
+Snacks.toggle.zen():map('<leader>tz')
+Snacks.toggle.zoom():map('<leader>tZ'):map('<leader>wm')
