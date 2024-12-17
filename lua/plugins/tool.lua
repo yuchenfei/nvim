@@ -31,4 +31,13 @@ return {
     },
     config = require('config.tool.telescope'),
   },
+  {
+    'CopilotC-Nvim/CopilotChat.nvim',
+    keys = require('config.keys').copilotchat,
+    opts = {},
+    dependencies = {
+      { 'zbirenbaum/copilot.lua' },
+      { 'nvim-lua/plenary.nvim' },
+    },
+  },
 }

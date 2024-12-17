@@ -313,4 +313,21 @@ M.telescope = function()
   -- end, { desc = '[S]earch [/] in Open Files' })
 end
 
+M.copilotchat = {
+  { '<leader>a', desc = 'AI', mode = { 'n', 'v' } },
+  { '<leader>aa', mode = { 'n', 'v' }, function() require('CopilotChat').toggle() end, desc = 'Toggle Copilot Chat' },
+  { '<leader>ar', mode = { 'n', 'v' }, function() require('CopilotChat').reset() end, desc = 'Reset Copilot Chat' },
+  {
+    '<leader>aq',
+    mode = { 'n', 'v' },
+    function()
+      local input = vim.fn.input('Quick Chat: ')
+      if input ~= '' then
+        require('CopilotChat').ask(input)
+      end
+    end,
+    desc = 'Quick Chat',
+  },
+}
+
 return M
