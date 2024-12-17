@@ -59,7 +59,7 @@ return {
 
     -- Neovim LSP Pickers
     { '<leader>sd', '<Cmd>Telescope diagnostics bufnr=0<CR>', desc = 'Diagnostics (current buffer)' },
-    { '<leader>sD', '<Cmd>diagnostics<CR>', desc = 'Diagnostics (all buffers)' },
+    { '<leader>sD', '<Cmd>Telescope diagnostics<CR>', desc = 'Diagnostics (all buffers)' },
     -- See lsp config
     -- builtin.lsp_incoming_calls
     -- builtin.lsp_outgoing_calls
